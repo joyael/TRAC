@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Group 1 Home Page</title>
+    {% load static %}
+</head>
+<body>
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <h1>User Group 1 Page</h1>
+
+    <a href="{% url 'logout' %}"> logout </a><br>
+    <a href="#"> Products View</a><br>
+
+    <div id="response"></div>
+    <script src="{% static 'js/trac_json.js' %}"></script>
+</body>
+</html>

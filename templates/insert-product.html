@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product</title>
+    {% load static %}
+    <script src="{% static 'js/token_refreshing.js' %}"></script>
+</head>
+<body>
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    
+    <h1>Create Product</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Render the form fields -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <a href="{% url 'logout' %}"> logout </a><br>
+    <a href="{% url 'insertproduct' %}"> Product Insert</a><br>
+    <a href="{% url 'viewproducts' %}"> View Products </a>
+</body>
+</html>

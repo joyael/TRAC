@@ -1,0 +1,6 @@
+db.sqlite3
+mangage.py
+TRAC/__pycache__/*
+trac_app/__pycache__/* 
+trac_app/migrations/__pycache__/*
+

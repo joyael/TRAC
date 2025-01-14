@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home Page</title>
+    {% load static %}
+</head>
+<body>
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    <h1>Admin Home Page</h1>
+
+    <a href="{% url 'logout' %}"> logout </a><br>
+    <a href="{% url 'insertproduct' %}"> Product Insert</a><br>
+    <a href="{% url 'viewproducts' %}"> View Products </a>
+
+    <div id="response"></div>
+    <script src="{% static 'js/trac_json.js' %}"></script>
+</body>
+</html>

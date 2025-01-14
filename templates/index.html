@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Form</title>
+    {% load static %}
+</head>
+<body>
+    <h1>Submit JSON Data</h1>
+    <form id="jsonForm" method="post" data-url="{% url 'json_handler' %}" data-csrfToken="{{ csrf_token }}">
+        {% csrf_token %}
+        <label for="jsonData">JSON Data:</label><br>
+        <textarea id="jsonData" name="jsonData" rows="10" cols="50" placeholder='{"key": "value"}'></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="response"></div>
+    <script src="{% static 'js/trac_json.js' %}"></script>
+</body>
+</html>

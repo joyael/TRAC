@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create RUser </title>
+    {% load static %}
+</head>
+<body>
+
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    <h1>Create User </h1>
+
+    <form method="post" action="{% url 'create_user'%}">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}  <!-- Renders the form fields, including the select for role -->
+
+        <button type="submit">Create User</button>
+
+    </form>
+    <div id="response"></div>
+</body>
+</html>
