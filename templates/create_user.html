@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create RUser </title>
     {% load static %}
+
+    <script src="{% static 'js/password_check.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/create_user.css' %}">
 </head>
 <body>
 
@@ -23,6 +26,14 @@
         {% csrf_token %}
 
         {{ form.as_p }}  <!-- Renders the form fields, including the select for role -->
+        
+        <ul id="password-conditions">
+            <li id="min-length" class="invalid">At least 8 characters</li>
+            <li id="uppercase" class="invalid">At least one uppercase letter</li>
+            <li id="lowercase" class="invalid">At least one lowercase letter</li>
+            <li id="number" class="invalid">At least one number</li>
+            <li id="special-char" class="invalid">At least one special character</li>
+        </ul>
 
         <button type="submit">Create User</button>
 

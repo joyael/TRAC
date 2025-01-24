@@ -86,7 +86,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # Use 'mysql' for mysqlclient or 'django.db.backends.mysql' for PyMySQL
         'NAME': 'mydatabase',                   # Your database name
-        'USER': 'root',                       # Your database user
+        'USER': 'root',                      # Your database user
         'PASSWORD': 'LMNopq@123',               # Your database password
         'HOST': 'localhost',                    # Set to empty string for localhost
         'PORT': '',                         # Set to empty string for default
@@ -138,3 +138,18 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'your_app_name': {  # Replace with your app name
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}

@@ -1,0 +1,22 @@
+#password-conditions li {
+list-style: none;
+padding: 5px;
+font-size: 14px;
+}
+
+#password-conditions .valid {
+color: green;
+}
+
+#password-conditions .invalid {
+color: red;
+}
+
+#password-conditions .valid:before {
+content: "✅ ";
+}
+
+#password-conditions .invalid:before {
+content: "❌ ";
+}
+  

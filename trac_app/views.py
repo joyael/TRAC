@@ -227,10 +227,14 @@ def refresh_token_view(request):
 
         # Generate a new access token
         new_access_token = create_access_token(user)
+        new_refresh_token = create_refresh_token(user)
 
         # Set the new access token as a cookie
         response = JsonResponse({'message': 'Access token refreshed successfully'})
         response.set_cookie('access_token', new_access_token, httponly=True, secure=True)  # Set the access token cookie
+        response.set_cookie('refresh_token', new_refresh_token, httponly=True, secure=True) # Setting new refresh token for rotation
+
+        make_refresh_token_inactive(refresh_token)
 
         return response
     except jwt.ExpiredSignatureError:
